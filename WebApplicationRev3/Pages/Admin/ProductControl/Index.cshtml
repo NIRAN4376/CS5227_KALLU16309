@@ -1,0 +1,43 @@
+﻿@page
+@model WebApplicationRev3.Pages.Admin.ProductControl.IndexModel
+@{
+}
+
+<h2 class="text-center mb-5">List of Products</h2>
+
+<div class="row mb-5">
+    <div class="col">
+        <a class="btn btn primary" href="/Admin/ProductControl/Create">New Product</a>
+    </div>
+    <div class="col">
+
+    </div>
+</div>
+
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Image</th>
+        <th>Modify</th>
+    </tr>
+
+    @foreach (var products in Model.Products)
+    {
+        <tr>
+            <td>'@products.Id'</td>
+            <td>@products.FoodName</td>
+            <td>@products.FoodDescription</td>
+            <td>@products.FoodCategory</td>
+            <td>@(products.FoodPrice)$</td>
+            <td><img src="/ProductImages/@products.FoodImage " width="100" /></td>
+            <td style="white-space:nowrap">
+                <a class="btn btn-primary btn-sm" href="/Admin/ProductControl/Edit?Id=@products.Id">Edit</a>
+                <a class="btn btn-danger btn-sm" href="/Admin/ProductControl/Delete?Id=@products.Id">Delete</a>
+            </td>
+        </tr>
+    }
+</table>

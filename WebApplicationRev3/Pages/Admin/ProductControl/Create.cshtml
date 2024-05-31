@@ -1,0 +1,84 @@
+﻿@page
+@model WebApplicationRev3.Pages.Admin.ProductControl.CreateModel
+@{
+}
+
+
+<div class="row">
+    <div class="col-md-8 mxalign-self-auto rounded border p-3">
+        <h2 class="text-center mb-5">New Product</h2>
+
+        @if (Model.errorMessage.Length > 0)
+        {
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>@Model.errorMessage</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
+        else if (Model.successMessage.Length > 0)
+        {
+            <div class="alert alert-success alertalert-dismissible fade show" role="alert">
+                <strong>@Model.successMessage</strong>
+                <button type="button" class="btn-close" data-bs-dismiis="alert" aria-label="Close"></button>
+            </div>
+        }
+
+        <form method="post" enctype="multipart/form-data">
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Name</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for ="ProductDisplay.FoodName" />
+                    <span asp-validation-for="ProductDisplay.FoodName" class="text-danger"></span>
+               </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Description</label>
+                <div class="col-sm-8">
+                    <textarea class="form-control" asp-for="ProductDisplay.FoodDescription"></textarea>
+                    <span asp-validation-for="ProductDisplay.FoodDescription" class="text-danger"></span>
+                </div>
+            </div>
+    
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Category</label>
+                <div class="col-sm-8">
+                   <select class="form-select" asp-for="ProductDisplay.FoodCategory">
+                        <option value="Starter">Starter</option>
+                        <option value="Main Course">Main Course</option>
+                        <option value="Side Dish">Side Dish</option>
+                        <option value="Dessert">Dessert</option>
+                   </select>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Price</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="ProductDisplay.FoodPrice" />
+                    <span asp-validation-for="ProductDisplay.FoodPrice" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Image</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="ProductDisplay.FoodImageSrc" />
+                    <span asp-validation-for="ProductDisplay.FoodImageSrc" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="offset-sm-4 col-sm-4 d-grid">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                <div class="col-sm-4 d-grid">
+                    <a class="btn btn-outline-primary" href="/Admin/ProductsControl/Index" role="button">Cancel</a>
+                </div>
+            </div>
+
+
+
+        </form>
+    </div>
+</div>

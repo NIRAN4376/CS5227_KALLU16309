@@ -1,0 +1,33 @@
+﻿@page
+@model WebApplicationRev3.Pages.ShopModel
+@{
+}
+
+
+<h2 class="text-center mb-5">Our Menu</h2>
+
+
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Image</th>
+       
+    </tr>
+
+    @foreach (var products in Model.Products)
+    {
+        <tr>
+            <td>'@products.Id'</td>
+            <td>@products.FoodName</td>
+            <td>@products.FoodDescription</td>
+            <td>@products.FoodCategory</td>
+            <td>@(products.FoodPrice)$</td>
+            <td><img src="/ProductImages/@products.FoodImage " width="100" /></td>
+            
+        </tr>
+    }
+</table>
